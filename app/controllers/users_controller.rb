@@ -10,6 +10,10 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @relationship = Relationship.where(
+    referrer_id: current_user.id,
+    referral_id: @user.id
+).first_or_initialize if current_user
   end
 
   # GET /users/new

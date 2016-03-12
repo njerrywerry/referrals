@@ -15,5 +15,20 @@
   <%= @user.phone_number %>
 </p>
 
+<p>
+  <strong>Referrer:</strong>
+  <%= @user.referrer %>
+</p>
+
+<p>
+  <strong>Referrals:</strong>
+  <%= @user.referrals %>
+</p>
+
+<%= form_for @relationship do %>
+  <%= hidden_field_tag :referral_id, @user.id %>
+  <%= submit_tag "Refer" %>
+<% end %>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

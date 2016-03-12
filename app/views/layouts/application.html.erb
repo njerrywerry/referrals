@@ -7,6 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if current_user %>
+    <%= link_to "Log Out", sessions_destroy_path %>
+  <% else %>
+    <%= form_tag sessions_create_path do %>
+      <%= text_field_tag :username, nil, placeholder: "username" %>
+      <%= submit_tag "Log In" %>
+    <% end %>
+  <% end %>
 
 <%= yield %>
 

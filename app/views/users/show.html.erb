@@ -25,9 +25,15 @@
   <%= @user.referrals %>
 </p>
 
-<%= form_for @relationship do %>
-  <%= hidden_field_tag :referral_id, @user.id %>
-  <%= submit_tag "Refer" %>
+<% if current_user and @user != current_user %>
+    <% if current_user.referred? @user %>
+        <%= submit_tag "Referred" %>
+    <% else %>
+        <%= form_for @relationship do %>
+            <%= hidden_field_tag :referral_id, @user.id %>
+            <%= submit_tag "Refer" %>
+        <% end %>
+    <% end %>
 <% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

@@ -4,8 +4,8 @@ class RelationshipsController < ApplicationController
 
   def create
     @relationship = Relationship.new
-    @relationship.followed_id = params[:referrer_id]
-    @relationship.follower_id = user.id</p>
+    @relationship.referrer_id = params[:referrer_id]
+    @relationship.referral_id = current_user.id
 
     if @relationship.save
       redirect_to User.find params[:referral_id]

@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find(params[:id])
     @relationship = Relationship.where(
     referrer_id: current_user.id,
     referral_id: @user.id

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'relationships/index'
 
-  get 'relationships/create'
+  post 'relationships/create'
 
   resources :users
   resources :relationships

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @tip.user_id %>
+</p>
+
+<p>
+  <strong>Commission rate:</strong>
+  <%= @tip.commission_rate %>
+</p>
+
+<p>
+  <strong>Load amount:</strong>
+  <%= @tip.load_amount %>
+</p>
+
+<p>
+  <strong>Commission amount:</strong>
+  <%= @tip.commission_amount %>
+</p>
+
+<%= link_to 'Edit', edit_tip_path(@tip) %> |
+<%= link_to 'Back', tips_path %>

@@ -45,3 +45,4 @@ group :development do
   gem 'spring'
 end
 
+gem 'default_value_for', '~> 3.0.0'

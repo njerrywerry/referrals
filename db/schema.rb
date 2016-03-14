@@ -11,13 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309154614) do
+ActiveRecord::Schema.define(version: 20160314183140) do
 
   create_table "relationships", force: :cascade do |t|
     t.string   "referrer_id"
     t.string   "referral_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "tips", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "commission_rate"
+    t.integer  "load_amount"
+    t.integer  "commission_amount"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "users", force: :cascade do |t|

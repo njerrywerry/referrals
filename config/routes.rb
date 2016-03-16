@@ -6,10 +6,6 @@ Rails.application.routes.draw do
 
   get 'sessions/destroy'
 
-  get 'relationships/index'
-
-  post 'relationships/create'
-
   resources :users
   resources :relationships
   # The priority is based upon order of creation: first created -> highest priority.

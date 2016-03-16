@@ -4,15 +4,20 @@ class RelationshipsController < ApplicationController
 
   def create
     @relationship = Relationship.new
-    @relationship.referrer_id = params[:referrer_id]
-    @relationship.referral_id = current_user.id
+    @relationship.referrer_id = current_user.id
+    @relationship.referral_id = params[:referral_id]
 
     if @relationship.save
-      redirect_to User.find params[:referral_id]
+      redirect_to root_url
     else
       flash[:error] = "Couldn't Refer"
       redirect_to root_url
     end
+  end
+
+  private
+  def relationship_params
+    params.require(:relationship).permit(:referrer_id, :referral_id)
   end
 
 end

@@ -30,7 +30,7 @@
         <%= submit_tag "Referred" %>
     <% else %>
         <%= form_for @relationship do %>
-            <%= hidden_field_tag :referral_id, @user.id %>
+            <%=  @user.id %>
             <%= submit_tag "Refer" %>
         <% end %>
     <% end %>

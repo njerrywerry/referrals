@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :wallets
   resources :commissions
   resources :relationships
   get 'sessions/new'

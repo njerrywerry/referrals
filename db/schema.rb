@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317163221) do
+ActiveRecord::Schema.define(version: 20160317170923) do
 
   create_table "commissions", force: :cascade do |t|
     t.float    "commission_rate"
-    t.decimal  "commission_amount"
+    t.integer  "commission_amount"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "relationship_id"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(version: 20160317163221) do
     t.string   "phone_number"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "wallets", force: :cascade do |t|
+    t.integer  "load_amount"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
 end

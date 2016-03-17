@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     referrer_id: current_user.id,
     referral_id: @user.id
 ).first_or_initialize if current_user
+    @wallet = Wallet.new
   end
 
   # GET /users/new

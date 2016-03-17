@@ -17,24 +17,33 @@
 
 <p>
   <strong>Referrer:</strong>
-  <%= @user.referrer %>
+  <% if @user.referrer.present? %>
+    <%= @user.referrer.name %>
+  <% end %>
 </p>
 
 <p>
   <strong>Referrals:</strong>
-  <%= @user.referrals %>
+  <% @user.referrals.each do |referral| %>
+    <ul>
+      <li> <%= referral.name %></li>
+    </ul>
+  <% end %>
 </p>
 
 <% if current_user and @user != current_user %>
-    <% if current_user.referred? @user %>
-        <%= submit_tag "Referred" %>
-    <% else %>
-        <%= form_for @relationship do %>
-            <%=  @user.id %>
-            <%= submit_tag "Refer" %>
-        <% end %>
+  <% if @user.referrer.present? or current_user.referred? @user %>
+    <strong>This user already has been referred!</strong>
+  <% else %>
+    <%= form_for(@relationship) do |f| %>
+      <%= f.hidden_field :referral_id, :value => @user.id %>
+      <%= f.hidden_field :referrer_id, :value => current_user.id %>
+      <%= submit_tag "Refer" %>
     <% end %>
+  <% end %>
 <% end %>
+
+<br>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

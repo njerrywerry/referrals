@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  referrer_id: MyString
-  referral_id: MyString
+  referrer_id: 1
+  referral_id: 1
 
 two:
-  referrer_id: MyString
-  referral_id: MyString
+  referrer_id: 1
+  referral_id: 1

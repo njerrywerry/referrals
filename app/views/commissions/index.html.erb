@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Commission rate</th>
-      <th>Load amount</th>
       <th>Commission amount</th>
       <th colspan="3"></th>
     </tr>
@@ -16,7 +15,6 @@
     <% @commissions.each do |commission| %>
       <tr>
         <td><%= commission.commission_rate %></td>
-        <td><%= commission.load_amount %></td>
         <td><%= commission.commission_amount %></td>
         <td><%= link_to 'Show', commission %></td>
         <td><%= link_to 'Edit', edit_commission_path(commission) %></td>

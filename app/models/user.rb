@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_one :referrer_relationship, class_name: "Relationship", foreign_key: "referral_id"
   has_one :referrer, through: :referrer_relationship
 
-  has_one :wallet
+  has_many :wallets
 
   def refer(user)
     Relationship.create referrer_id: self.id, referral_id: user.id

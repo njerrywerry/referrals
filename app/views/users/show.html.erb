@@ -15,6 +15,22 @@
   <%= @user.phone_number %>
 </p>
 
+<% if current_user and @user == current_user %>
+  <p>
+    <strong>Amount in Wallet:</strong>
+      <%= print_price(@user.wallets.sum(:load_amount)) %>
+  </p>
+
+  <p>
+    <strong>Transactions:</strong>
+    <% @user.wallets.each do |wallet| %>
+      <ul>
+        <li><%= print_price(wallet.load_amount) %> | <%= time_ago_in_words(wallet.created_at) %> ago</li>
+      </ul>
+    <% end %>
+  </p>
+<% end %>
+
 <p>
   <strong>Referrer:</strong>
   <% if @user.referrer.present? %>
@@ -45,5 +61,7 @@
 
 <br>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<% if current_user and @user == current_user %>
+  <%= link_to 'Load Wallet', new_wallet_path %> |
+<% end %>
 <%= link_to 'Back', users_path %>

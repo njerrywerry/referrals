@@ -1,10 +1,10 @@
-<%= form_for(@tip) do |f| %>
-  <% if @tip.errors.any? %>
+<%= form_for(@commission) do |f| %>
+  <% if @commission.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@tip.errors.count, "error") %> prohibited this tip from being saved:</h2>
+      <h2><%= pluralize(@commission.errors.count, "error") %> prohibited this commission from being saved:</h2>
 
       <ul>
-      <% @tip.errors.full_messages.each do |message| %>
+      <% @commission.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,12 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
     <%= f.label :commission_rate %><br>
-    <%= f.number_field :commission_rate %>
+    <%= f.text_field :commission_rate %>
   </div>
   <div class="field">
     <%= f.label :load_amount %><br>

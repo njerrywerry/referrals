@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Commission rate:</strong>
+  <%= @commission.commission_rate %>
+</p>
+
+<p>
+  <strong>Load amount:</strong>
+  <%= @commission.load_amount %>
+</p>
+
+<p>
+  <strong>Commission amount:</strong>
+  <%= @commission.commission_amount %>
+</p>
+
+<%= link_to 'Edit', edit_commission_path(@commission) %> |
+<%= link_to 'Back', commissions_path %>

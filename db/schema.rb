@@ -20,15 +20,6 @@ ActiveRecord::Schema.define(version: 20160317064300) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "tips", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "commission_rate"
-    t.integer  "load_amount"
-    t.integer  "commission_amount"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "username"

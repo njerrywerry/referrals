@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317064300) do
+ActiveRecord::Schema.define(version: 20160317163221) do
+
+  create_table "commissions", force: :cascade do |t|
+    t.float    "commission_rate"
+    t.decimal  "commission_amount"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "relationship_id"
+  end
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "referrer_id"
